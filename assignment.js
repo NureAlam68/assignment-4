@@ -21,17 +21,38 @@
 
 
 
-function sendNotification(email) {
-    let emailArray = email.split("@");
-    let userName = emailArray[0];
-    let domainName = emailArray[1];
-    if(email.indexOf('@') === -1) {
-        return  "Invalid Email";
-    }
-    let notificationMessage = userName + " sent you an email from " + domainName;
-    return notificationMessage;
-}
-let str = "sadia8icloud.com";
-let result = sendNotification(str);
-console.log(result)
+// function sendNotification(email) {
+//     let emailArray = email.split("@");
+//     let userName = emailArray[0];
+//     let domainName = emailArray[1];
+//     if(email.indexOf('@') === -1) {
+//         return  "Invalid Email";
+//     }
+//     let notificationMessage = userName + " sent you an email from " + domainName;
+//     return notificationMessage;
+// }
+// let str = "sadia8@icloud.com";
+// let result = sendNotification(str);
+// console.log(result);
 
+
+
+
+
+
+function checkDigitsInName(name) {
+    if(typeof name !== 'string') {
+        return  "Invalid Input";
+    }
+    for(let i = 0; i < name.length; i++ ) {
+        let char = name[i];
+        console.log(char)
+        if(char >= "0" && char <= "9") {
+            return true;
+        }
+    }
+    return false;
+}
+let people = ["Raj"];
+let result = checkDigitsInName(people);
+console.log(result)
