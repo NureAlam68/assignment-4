@@ -40,19 +40,47 @@
 
 
 
-function checkDigitsInName(name) {
-    if(typeof name !== 'string') {
+// function checkDigitsInName(name) {
+//     if(typeof name !== 'string') {
+//         return  "Invalid Input";
+//     }
+//     for(let i = 0; i < name.length; i++ ) {
+//         let char = name[i];
+//         console.log(char)
+//         if(char >= "0" && char <= "9") {
+//             return true;
+//         }
+//     }
+//     return false;
+// }
+// let people = ["Raj"];
+// let result = checkDigitsInName(people);
+// console.log(result)
+
+
+
+
+
+
+function calculateFinalScore(obj) {
+    if(typeof obj !== 'object' || Array.isArray(obj)) {
         return  "Invalid Input";
     }
-    for(let i = 0; i < name.length; i++ ) {
-        let char = name[i];
-        console.log(char)
-        if(char >= "0" && char <= "9") {
-            return true;
-        }
+    let totalScore = obj.testScore + obj.schoolGrade;
+    if(obj.isFFamily) {
+        totalScore = totalScore + 20;
     }
-    return false;
+    if(totalScore >= 80) {
+        return true;
+    }
+    else {
+        return false;
+    }
 }
-let people = ["Raj"];
-let result = checkDigitsInName(people);
+let ok = { name: "Rajib", testScore: 15,  schoolGrade: 25, isFFamily : true  }
+
+
+let result = calculateFinalScore(ok);
 console.log(result)
+
+
