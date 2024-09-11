@@ -62,25 +62,48 @@
 
 
 
-function calculateFinalScore(obj) {
-    if(typeof obj !== 'object' || Array.isArray(obj)) {
-        return  "Invalid Input";
+// function calculateFinalScore(obj) {
+//     if(typeof obj !== 'object' || Array.isArray(obj)) {
+//         return  "Invalid Input";
+//     }
+//     let totalScore = obj.testScore + obj.schoolGrade;
+//     if(obj.isFFamily) {
+//         totalScore = totalScore + 20;
+//     }
+//     if(totalScore >= 80) {
+//         return true;
+//     }
+//     else {
+//         return false;
+//     }
+// }
+
+// let ok = { name: "Rajib", testScore: 50,  schoolGrade: 30, isFFamily : false  }
+// let result = calculateFinalScore(ok);
+// console.log(result)
+
+
+
+
+
+
+function  waitingTime(waitingTimes  , serialNumber) {
+    if(!Array.isArray(waitingTimes) || typeof serialNumber !== "number") {
+        return "Invalid Input";
     }
-    let totalScore = obj.testScore + obj.schoolGrade;
-    if(obj.isFFamily) {
-        totalScore = totalScore + 20;
+    let sum = 0;
+    for(let time of waitingTimes) {
+        sum = sum + time;
     }
-    if(totalScore >= 80) {
-        return true;
-    }
-    else {
-        return false;
-    }
+    let avgTime = sum / waitingTimes.length;
+    avgTime = Math.round(avgTime);
+    let haveBeforeSerial = serialNumber -1;
+    let remainingSerial = haveBeforeSerial - waitingTimes.length;
+    let remainingTime = avgTime * remainingSerial;
+    return remainingTime;
 }
-let ok = { name: "Rajib", testScore: 15,  schoolGrade: 25, isFFamily : true  }
-
-
-let result = calculateFinalScore(ok);
+let input1 = [7, 8, 3, 4, 5]
+let input2 = '9'
+let result = waitingTime(input1, input2)
 console.log(result)
-
 
