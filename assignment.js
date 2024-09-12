@@ -97,13 +97,13 @@ function  waitingTime(waitingTimes  , serialNumber) {
     }
     let avgTime = sum / waitingTimes.length;
     avgTime = Math.round(avgTime);
-    let haveBeforeSerial = serialNumber -1;
+    let haveBeforeSerial = serialNumber - 1;
     let remainingSerial = haveBeforeSerial - waitingTimes.length;
     let remainingTime = avgTime * remainingSerial;
     return remainingTime;
 }
-let input1 = [7, 8, 3, 4, 5]
-let input2 = '9'
-let result = waitingTime(input1, input2)
+// let input1 = [7, 8, 3, 4, 5]
+// let input2 = '9'
+let result = waitingTime([ 3, 5, 7, 11, 6 ], 10)
 console.log(result)
 
